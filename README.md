@@ -20,18 +20,17 @@ Description: This endpoint registers a new user in the system.
 - [ ] Add the request body as shown below.
 - [ ] Request Body Example:
 
-json
+ json
 <br> {
   "name": "John Doe",
   "email": "john.doe@example.com",
   "password": "Password123"
 }
-Send the request and check for the response.
+
+- [ ] Send the request and check for the response.
 Expected Response:
 
 json
-
-Salin kode
 {
     "username": "ghozi4",
     "email": "ghozi14@example.com",
@@ -39,7 +38,7 @@ Salin kode
     "Address": "depok",
     "role":"Admin"
   
-}</br>
+}
 
 ### 2. User Login
 Endpoint: POST /api/login
@@ -51,13 +50,14 @@ Description: This endpoint allows a user to log in and obtain a token for authen
 - [ ] In the Body tab, add the login details.
 - [ ] Request Body Example:
 
-- json
+json
 
 {
   "email": "john.doe@example.com",
   "password": "Password123"
 }
-Send the request and copy the returned JWT token for future requests.
+
+- [ ] Send the request and copy the returned JWT token for future requests.
 Expected Response:
 
 - json
@@ -77,14 +77,13 @@ Expected Response:
 - [ ] Request Body Example:
  
  json
-Salin kode
 {
     "name": "Customer",
     "position": "Customer",
     "stacks": ["nodejs", "react"]
 }
 Send the request.
-Expected Response:
+- [ ] Expected Response:
 
 - json
 {
@@ -108,7 +107,6 @@ Expected Response:
 - [ ] Request Body Example:
 
 json
-Salin kode
 {
   "customer_id": "CUST123456",
   "name": "John Doe",
@@ -124,7 +122,8 @@ Salin kode
   ]
 }
 Send the request.
-Expected Response:
+
+- [ ] Expected Response:
 
 json
 Salin kode
@@ -157,7 +156,6 @@ Salin kode
 - [ ] Request Body Example:
 
 json
-Salin kode
 {
   "transaction_id": "TXN123456",
   "customer_id": "CUST123456",
@@ -165,10 +163,10 @@ Salin kode
   "transaction_date": "2024-09-10"
 }
 Send the request.
-Expected Response:
+
+- [ ] Expected Response:
 
 json
-Salin kode
 {
   "message": "Transaction created successfully",
   "transaction": {
