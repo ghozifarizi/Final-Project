@@ -1,0 +1,100 @@
+// Import necessary modules
+const Customer = require('../models/customer_model');
+
+// Function to find a customer by their ID
+async function findOneByCustomerId(customerId) {
+  try {
+    // Find the customer by ID
+    const customer = await Customer.findOne({ customer_id: customerId });
+    return customer;
+  } catch (error) {
+    console.error('Error finding customer by ID:', error);
+    throw error;
+  }
+}
+
+
+// Function to find all customers
+async function findAll() {
+  try {
+    const customers = await Customer.find();
+    return customers;
+  } catch (error) {
+    console.error('Error finding customers:', error);
+    throw error;
+  }
+}
+
+// Function to create a new customer
+async function create(customerData) {
+  try {
+    // Create a new customer instance
+    const newCustomer = new Customer(customerData);
+
+    // Save the customer to the database
+    const savedCustomer = await newCustomer.save();
+    return savedCustomer;
+  } catch (error) {
+    console.error('Error creating customer:', error);
+    throw error;
+  }
+}
+
+// Function to get a customer by name
+async function getOneByName(name) {
+  try {
+      const customer = await Customer.findOne({ name: name });
+      return customer;
+  } catch (error) {
+      console.error('Error getting customer by name:', error);
+      throw error;
+  }
+}
+
+
+// Function to update a customer by ID
+async function updateOne(customerId, updateData) {
+  try {
+    // Find the customer by ID
+    const existingCustomer = await Customer.findOne({ customer_id: customerId });
+    if (!existingCustomer) {
+      throw new Error('Customer not found');
+    }
+
+    // Exclude the _id field from the update data
+    delete updateData._id;
+
+    // Update the customer's data
+    Object.assign(existingCustomer, updateData);
+
+    // Set the updated_at field to the current time
+    existingCustomer.updated_at = new Date();
+
+    // Save the updated customer to the database
+    const updatedCustomer = await existingCustomer.save();
+    return updatedCustomer;
+  } catch (error) {
+    console.error('Error updating customer:', error);
+    throw error;
+  }
+}
+
+// Function to delete a customer by their ID
+async function deleteOne(customerId) {
+  try {
+    // Delete the customer by ID
+    const result = await Customer.deleteOne({ customer_id: customerId });
+    
+    if (result.deletedCount === 0) {
+      throw new Error('Customer not found');
+    }
+    
+    return { message: 'Customer deleted successfully' };
+  } catch (error) {
+    console.error('Error deleting customer:', error);
+    throw error;
+  }
+}
+
+// Export repository functions
+module.exports = { findOneByCustomerId, findAll, getOneByName, create, updateOne, deleteOne };

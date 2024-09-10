@@ -3,6 +3,8 @@
 const passport = require('passport');
 const { Strategy, ExtractJwt } = require('passport-jwt');
 const usecases = require('../domain/usecases/user_usecase'); // Adjust the path to your user repository
+const customerUsecase = require('../domain/usecases/customer_usecase'); 
+
 
 const options = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -21,7 +23,7 @@ const options = {
       return done(error, false, { message: 'Failed to authenticate token' });
     }
   }));
-  
+
   const initializePassport = () => {
     return passport.initialize();
   };
@@ -29,7 +31,7 @@ const options = {
   const authenticatePassportJwt = () => {
     return passport.authenticate('jwt', { session: false });
   };
-  
+
   module.exports = {
     initializePassport,
     authenticatePassportJwt

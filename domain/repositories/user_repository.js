@@ -97,4 +97,5 @@ async function deleteOne(userId) {
   }
 }
 
+
 module.exports = { findOneByUserId, findOneByEmail, findAll, create, updateOne, deleteOne };
