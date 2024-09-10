@@ -21,8 +21,7 @@ Description: This endpoint registers a new user in the system.
 - [ ] Request Body Example:
 
 json
-Salin kode
-{
+<br> {
   "name": "John Doe",
   "email": "john.doe@example.com",
   "password": "Password123"
@@ -40,7 +39,7 @@ Salin kode
     "Address": "depok",
     "role":"Admin"
   
-}
+}</br>
 
 ### 2. User Login
 Endpoint: POST /api/login
@@ -146,11 +145,11 @@ Salin kode
     ]
   }
 }
-## 5. Create a Transaction
+### 5. Create a Transaction
 - [ ] Endpoint: POST /api/transactions
 - [ ] Description: This endpoint allows creating a transaction for a customer. Requires authentication.
 
-### Steps in Postman:
+#### Steps in Postman:
 - [ ] Create a new POST request.
 - [ ] Set the URL: http://localhost:3000/api/transactions.
 - [ ] In the Headers tab, add Authorization and set it to Bearer <jwt_token>.
